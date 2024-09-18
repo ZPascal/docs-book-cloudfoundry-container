@@ -6,6 +6,9 @@ updates:
       interval: "weekly"
     reviewers:
       - "ZPascal"
+    ignore:
+      - dependency-name: "ruby"
+        versions: ["3.x.x"]
 
   - package-ecosystem: "github-actions"
     directory: "/"
