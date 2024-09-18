@@ -1,0 +1,9 @@
+version: "3"
+services:
+  ruby-cf-bookbindery:
+    image: ghcr.io/zpascal/docs-book-cloudfoundry-container:latest
+    network_mode: bridge
+    ports:
+      - "4567:4567"
+    volumes:
+      - /<directory>/cf/docs-dev-guide:/tmp/docs-dev-guide
