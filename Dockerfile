@@ -4,6 +4,10 @@ ARG DOCS_BOOK_CLOUDFOUNDRY_REPO=https://github.com/cloudfoundry/docs-book-cloudf
 ARG DOCS_BOOK_CLOUDFOUNDRY_WORKDIR=/tmp/docs-book-cloudfoundry
 ARG NODEJS_VERSION=v16.9.1
 
+LABEL org.opencontainers.image.title="Docs Book Cloud Foundry Container" \
+      org.opencontainers.image.description="The container contains Ruby 2.6.9 and the functionality to run the Cloud Foundry documentation web server" \
+      org.opencontainers.image.authors="Pascal Zimmermann <pascal.zimmermann@theiotstudio.com>"
+
 WORKDIR $DOCS_BOOK_CLOUDFOUNDRY_WORKDIR
 COPY docker/files/Gemfile /tmp/Gemfile
 
@@ -16,4 +20,4 @@ RUN cd /opt/ && wget https://nodejs.org/dist/$NODEJS_VERSION/node-$NODEJS_VERSIO
 
 EXPOSE 4567
 
-CMD ["bundle","exec","bookbinder","watch"]
+CMD ["bundle", "exec", "bookbinder", "watch"]
